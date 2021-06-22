@@ -1,0 +1,44 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <link href="styles2.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+</head>
+<body>
+<div id="app">
+    <div class="split left imageChanger" :style="{ backgroundImage: 'url(' + imageFruit + ')' }"></div>
+
+    <div class="split right">
+        <div v-for="fruit in listeFruits" :style="{height:Hauteurbouton , lineHeight:Hauteurbouton}" @mouseover="imageFruit = fruit.imageSurvol" class="boutonFruits" @mouseout="imageFruit='all-fruits.jpg'">{{fruit.text}}</div>
+
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+<script>-
+    new Vue({
+        el: '#app',
+        data: {
+            imageFruit:'all-fruits.jpg',
+            listeFruits:[
+                {text:"Orange", lien:"/lien1", imageSurvol: "orange.jpg"},
+                {text:"Kiwi", lien:"/lien1", imageSurvol: "kiwi.jpg"},
+                {text:"Banane", lien:"/lien1", imageSurvol: "banane.jpg"},
+                {text:"Cerise", lien:"/lien1", imageSurvol: "cerise.jpg"},
+                {text:"Peche", lien:"/lien1", imageSurvol: "peche.jpg"},
+                {text:"Melon", lien:"/lien1", imageSurvol: "melon.jpg"},
+                {text:"Grappe de Raisin", lien:"/lien1", imageSurvol: "grappe_de_raisin.jpg"},
+                {text:"Pomme", lien:"/lien1", imageSurvol:"pomme.jpg"},
+            ],
+        },
+        computed: {
+            Hauteurbouton : function () {
+                return 100/this.listeFruits.length+'vh';
+            }
+        }
+    })
+</script>
+</body>
+</html>
